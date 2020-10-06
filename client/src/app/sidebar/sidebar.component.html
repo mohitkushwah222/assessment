@@ -1,0 +1,7 @@
+<div class="list">
+  <div class="list-item" *ngFor="let item of menu" (click)="redirect(item.route, item.label)"
+    [class.active]="item.label === activeMenu">
+    <i class="{{item.icon}}" aria-hidden="true"></i>
+    <span>{{item.label}}</span>
+  </div>
+</div>

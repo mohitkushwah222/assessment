@@ -1,0 +1,16 @@
+# compilation #
+compiled/
+dist/
+node_modules/
+
+# IDE #
+.idea/
+.vscode/
+*.swp
+
+
+# Angular #
+*.ngfactory.ts
+*.css.shim.ts
+*.ngsummary.json
+*.shim.ngstyle.ts

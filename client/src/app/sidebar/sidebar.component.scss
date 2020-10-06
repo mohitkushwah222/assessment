@@ -1,0 +1,23 @@
+:host {
+  display: block;
+  height: 100vh;
+  background-color: #fafafa;
+
+  .list {
+    .list-item {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      font-size: 15px;
+      padding: 5px;
+      cursor: pointer;
+      &.active {
+        color: #0071ff;
+      }
+
+      i {
+        margin-right: 10px;
+      }
+    }
+  }
+}

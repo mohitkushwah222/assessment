@@ -28,4 +28,8 @@ export class ApiService {
   getEmployees() {
     return this.httpClient.get(baseURL + '/getEmployees', httpOptions);
   }
+
+  getLogtime() {
+    return this.httpClient.get(baseURL + '/getLogtime', httpOptions);
+  }
 }

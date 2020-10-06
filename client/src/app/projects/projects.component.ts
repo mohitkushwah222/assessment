@@ -9,16 +9,20 @@ import { ApiService } from '../api.service';
 export class ProjectsComponent implements OnInit {
   projects = [];
   employees = [];
+  logtime = [];
   constructor(
-    private apiService : ApiService
+    private apiService: ApiService
   ) { }
 
   ngOnInit() {
     this.apiService.getEmployees().subscribe(res => {
-     this.employees = res['data']
+      this.employees = res['data']
     })
     this.apiService.getProjects().subscribe(res => {
       this.projects = res['data']
+    })
+    this.apiService.getLogtime().subscribe(res => {
+      this.logtime = res['data']
     })
   }
 

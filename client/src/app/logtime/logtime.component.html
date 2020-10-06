@@ -2,22 +2,24 @@
 <form [formGroup]="formGroup" (ngSubmit)="submit()">
   <div class="form-group">
     <label for="exampleFormControlInput1">Date</label>
-    <input type="date" formControlName="date" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+    <input type="date" formControlName="date" class="form-control" id="exampleFormControlInput1"
+      placeholder="name@example.com">
   </div>
   <div class="form-group">
     <label for="exampleFormControlInput2">Time logged</label>
-    <input type="time" formControlName="time" class="form-control" id="exampleFormControlInput2" placeholder="name@example.com">
+    <input type="time" formControlName="time" class="form-control" id="exampleFormControlInput2"
+      placeholder="name@example.com">
   </div>
   <div class="form-group">
     <label for="exampleFormControlSelect1">Project</label>
     <select formControlName="project" class="form-control" id="exampleFormControlSelect1">
-      <option *ngFor="let item of projects" value="{{item?.id}}">{{item?.name}}</option>
+      <option *ngFor="let item of projects" value="{{item}}">{{item}}</option>
     </select>
   </div>
   <div class="form-group">
     <label for="exampleFormControlSelect2">Employee</label>
     <select formControlName="employee" class="form-control" id="exampleFormControlSelect2">
-      <option *ngFor="let item of employees" value="{{item?.id}}">{{item?.name}}</option>
+      <option *ngFor="let item of employees" value="{{item}}">{{item}}</option>
     </select>
   </div>
   <button class="btn btn-primary" type="submit" [disabled]="!formGroup.valid">Submit</button>

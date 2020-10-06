@@ -5,14 +5,14 @@
       <div class="label">Project</div>
       <select class="custom-select custom-select-sm">
         <option selected>Select</option>
-        <option value="{{item?.id}}" *ngFor="let item of projects">{{item.name}}</option>
+        <option value="{{item}}" *ngFor="let item of projects">{{item}}</option>
       </select>
     </div>
     <div class="select">
       <div class="label">Employee</div>
       <select class="custom-select custom-select-sm">
         <option selected>Select</option>
-        <option value="{{item?.id}}" *ngFor="let item of projects">{{item.name}}</option>
+        <option value="{{item}}" *ngFor="let item of employees">{{item}}</option>
       </select>
     </div>
   </div>
@@ -31,29 +31,19 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">Project</th>
+      <th scope="col">Employee</th>
+      <th scope="col">Date</th>
+      <th scope="col">Time</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
+    <tr *ngFor="let item of logtime;let i = index">
+      <th scope="row">{{i+1}}</th>
+      <td>{{item?.project}}</td>
+      <td>{{item?.employee}}</td>
+      <td>{{item?.date}}</td>
+      <td>{{item?.time}}</td>
     </tr>
   </tbody>
 </table>

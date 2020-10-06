@@ -9,6 +9,7 @@ const app = express();
 const apiPort = 3000;
 
 app.use(cors());
+app.options('*', cors())
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -18,7 +19,7 @@ app.get('/', (req, res) => {
 
 db.on('error', console.error.bind(console, 'Mongodb connection error!'));
 
-app.use('/tasks', taskRouter);
+app.use('/api', taskRouter);
 
 
 app.listen(apiPort, () => {

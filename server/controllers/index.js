@@ -1,16 +1,16 @@
-const Task = require('../models');
+const Logtime = require('../models');
 
 
-addTask = (req, res) => {
+createLogtime = (req, res) => {
     const body = req.body;
     if (!body) {
         return res.status(400).json({
             success: false,
-            error: 'Please provide task details'
+            error: 'Please provide logtime details'
         })
     }
 
-    const task = new Task(body);
+    const task = new Logtime(body);
 
     if (!task) {
         return res.status(400).json({ success: false, error: err })
@@ -20,26 +20,38 @@ addTask = (req, res) => {
         return res.status(201).json({
             success: true,
             id: task.id,
-            message: 'Task added!'
+            message: 'logtime added!'
         })
     })
         .catch(err => {
             return res.status(400).json({
                 err,
-                message: 'Task not added!'
+                message: 'logtime not added!'
             })
         })
 }
 
-getTaskList = async (req, res) => {
-    await Task.find({}, (err, list) => {
-        if (err) return res.status(404).json({ success: false, error: err });
-        if (!list.length) return res.status(404).json({ success: false, error: 'No tasks found!' });
-        return res.status(200).json({ success: true, data: list });
-    }).catch(error => console.log(error));
+getEmployees = async (req, res) => {
+    const list = [{ id: 1, name: 'em1' }, { id: 1, name: 'emp2' }]
+    // await Logtime.find({}, (err, list) => {
+    //     if (err) return res.status(404).json({ success: false, error: err });
+    //     if (!list.length) return res.status(404).json({ success: false, error: 'No tasks found!' });
+    // }).catch(error => console.log(error));
+    return res.status(200).json({ success: true, data: list });
+}
+
+getProjects = async (req, res) => {
+    const list = [{ id: 1, name: 'pro1', totalEstimate: 10 }, { id: 1, name: 'pro1', totalEstimate: 10 }];
+    // await Logtime.find({}, (err, list) => {
+    //     if (err) return res.status(404).json({ success: false, error: err });
+    //     if (!list.length) return res.status(404).json({ success: false, error: 'No tasks found!' });
+    //     return res.status(200).json({ success: true, data: list });
+    // }).catch(error => console.log(error));
+    return res.status(200).json({ success: true, data: list });
 }
 
 module.exports = {
-    addTask,
-    getTaskList
+    createLogtime,
+    getEmployees,
+    getProjects
 }

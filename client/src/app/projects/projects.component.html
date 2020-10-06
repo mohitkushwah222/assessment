@@ -21,9 +21,9 @@
   <h4>Project Status</h4>
   <div class="status-card">
     <div class="list">
-      <div>All project time log</div>
-      <div>All project estimated time</div>
-      <div>All employee time log</div>
+      <div>All project time log {{totalTime}} hours</div>
+      <div>All project estimated time {{totalTime}} hours</div>
+      <div>All employee time log {{totalTime}} hours</div>
     </div>
   </div>
 </div>
@@ -43,7 +43,7 @@
       <td>{{item?.project}}</td>
       <td>{{item?.employee}}</td>
       <td>{{item?.date}}</td>
-      <td>{{item?.time}}</td>
+      <td>{{item?.time}} h</td>
     </tr>
   </tbody>
 </table>

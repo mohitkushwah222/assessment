@@ -10,6 +10,7 @@ export class ProjectsComponent implements OnInit {
   projects = [];
   employees = [];
   logtime = [];
+  totalTime = 0;
   constructor(
     private apiService: ApiService
   ) { }
@@ -23,6 +24,9 @@ export class ProjectsComponent implements OnInit {
     })
     this.apiService.getLogtime().subscribe(res => {
       this.logtime = res['data']
+      this.logtime.forEach(ele => {
+        this.totalTime += parseInt(ele.time)
+      })
     })
   }
 

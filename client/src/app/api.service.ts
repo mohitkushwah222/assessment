@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { BehaviorSubject } from 'rxjs';
 
 const baseURL = 'http://localhost:3000/api';
 const httpOptions = {
@@ -11,7 +12,6 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class ApiService {
-
   constructor(
     private httpClient: HttpClient,
   ) { }

@@ -38,6 +38,8 @@ export class LogtimeComponent implements OnInit {
   submit() {
     this.apiService.createLogtime(this.formGroup.value).subscribe(res => {
       console.log(res)
+      this.formGroup.reset();
+      window.alert('Created')
     });
   }
 

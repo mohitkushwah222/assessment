@@ -3,16 +3,18 @@
   <div class="filter">
     <div class="select">
       <div class="label">Project</div>
-      <select class="custom-select custom-select-sm">
+      <select class="custom-select custom-select-sm" (change)="selectProject($event.target.value)"
+        [(ngModel)]="selectedProject">
         <option selected>Select</option>
-        <option value="{{item}}" *ngFor="let item of projects">{{item}}</option>
+        <option value="{{item.name}}" *ngFor="let item of projects">{{item.name}}</option>
       </select>
     </div>
     <div class="select">
       <div class="label">Employee</div>
-      <select class="custom-select custom-select-sm">
+      <select class="custom-select custom-select-sm" (change)="selectEmployee($event.target.value)"
+        [(ngModel)]="selectedEmployee">
         <option selected>Select</option>
-        <option value="{{item}}" *ngFor="let item of employees">{{item}}</option>
+        <option value="{{item.name}}" *ngFor="let item of employees">{{item.name}}</option>
       </select>
     </div>
   </div>
@@ -22,7 +24,7 @@
   <div class="status-card">
     <div class="list">
       <div>All project time log {{totalTime}} hours</div>
-      <div>All project estimated time {{totalTime}} hours</div>
+      <div>All project estimated time {{totalEstimate}} hours</div>
       <div>All employee time log {{totalTime}} hours</div>
     </div>
   </div>
@@ -38,7 +40,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let item of logtime;let i = index">
+    <tr *ngFor="let item of filteredList;let i = index">
       <th scope="row">{{i+1}}</th>
       <td>{{item?.project}}</td>
       <td>{{item?.employee}}</td>

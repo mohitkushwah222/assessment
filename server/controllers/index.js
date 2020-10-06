@@ -32,27 +32,48 @@ createLogtime = (req, res) => {
 }
 
 getEmployees = async (req, res) => {
-    await Logtime.find({}, (err, list) => {
-        if (err) return res.status(404).json({ success: false, error: err });
-        if (!list.length) return res.status(404).json({ success: false, error: 'No data found!' });
-        var data = [];
-        list.forEach(ele => {
-            data.push(ele.employee);
+    var list = [];
+    for (let i = 0; i < 9; i++) {
+        const id = i + 1;
+        list.push({
+            id: id,
+            name: 'Employee' + id
         })
-        return res.status(200).json({ success: true, data: data });
-    }).catch(error => console.log(error));
+
+    }
+    // await Logtime.find({}, (err, list) => {
+    //     if (err) return res.status(404).json({ success: false, error: err });
+    //     if (!list.length) return res.status(404).json({ success: false, error: 'No data found!' });
+    //     var data = [];
+    //     list.forEach(ele => {
+    //         data.push(ele.employee);
+    //     })
+    //     return res.status(200).json({ success: true, data: data });
+    // }).catch(error => console.log(error));
+    return res.status(200).json({ success: true, data: list });
 }
 
 getProjects = async (req, res) => {
-    await Logtime.find({}, (err, list) => {
-        if (err) return res.status(404).json({ success: false, error: err });
-        if (!list.length) return res.status(404).json({ success: false, error: 'No data found!' });
-        var data = [];
-        list.forEach(ele => {
-            data.push(ele.project);
+    var list = [];
+    for (let i = 0; i < 9; i++) {
+        const id = i + 1;
+        list.push({
+            id: id,
+            name: 'Project' + id,
+            totalEstimate: id * 2
         })
-        return res.status(200).json({ success: true, data: data });
-    }).catch(error => console.log(error));
+
+    }
+    // await Logtime.find({}, (err, list) => {
+    //     if (err) return res.status(404).json({ success: false, error: err });
+    //     if (!list.length) return res.status(404).json({ success: false, error: 'No data found!' });
+    //     var data = [];
+    //     list.forEach(ele => {
+    //         data.push(ele.project);
+    //     })
+    //     return res.status(200).json({ success: true, data: data });
+    // }).catch(error => console.log(error));
+    return res.status(200).json({ success: true, data: list });
 }
 
 getLogtime = async (req, res) => {

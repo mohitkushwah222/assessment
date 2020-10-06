@@ -13,13 +13,13 @@
   <div class="form-group">
     <label for="exampleFormControlSelect1">Project</label>
     <select formControlName="project" class="form-control" id="exampleFormControlSelect1">
-      <option *ngFor="let item of projects" value="{{item}}">{{item}}</option>
+      <option *ngFor="let item of projects" value="{{item.name}}">{{item.name}}</option>
     </select>
   </div>
   <div class="form-group">
     <label for="exampleFormControlSelect2">Employee</label>
     <select formControlName="employee" class="form-control" id="exampleFormControlSelect2">
-      <option *ngFor="let item of employees" value="{{item}}">{{item}}</option>
+      <option *ngFor="let item of employees" value="{{item.name}}">{{item.name}}</option>
     </select>
   </div>
   <button class="btn btn-primary" type="submit" [disabled]="!formGroup.valid">Submit</button>
